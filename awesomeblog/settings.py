@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'events.apps.EventsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,8 +75,12 @@ WSGI_APPLICATION = 'awesomeblog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'awesomeblogdb',
+        'USER': 'postgres',
+        'PASSWORD': '11111',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -125,3 +130,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_URL = '/awesome_media/'
